@@ -47,7 +47,7 @@ exports.realizarLogin = async (req, res) => {
         }
         
         // Se for cliente
-        return res.redirect('/'); 
+        return res.redirect('/barbearia'); 
 
     } catch (error) {
         console.error(error);
@@ -77,7 +77,7 @@ exports.realizarCadastro = async (req, res) => {
             [nome, email, senhaHash, telefone]
         );
 
-        res.redirect('/auth/login?sucesso=true');
+        res.redirect('/auth/login');
     } catch (error) {
         console.error(error);
         res.status(500).send("Erro no cadastro");
@@ -122,7 +122,7 @@ exports.googleCallback = async (req, res) => {
             req.session.barbeariaId = 1;
             res.redirect('/admin/dashboard');
         } else {
-            res.redirect('/');
+            res.redirect('/barbearia');
         }
 
     } catch (error) {

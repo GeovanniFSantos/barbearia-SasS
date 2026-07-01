@@ -50,11 +50,13 @@ app.use('/admin', adminRoutes);
 // Rotas da API para o cliente final (Busca de horários disponíveis)
 app.use('/api', apiRoutes);
 
+app.get('/', (req, res) => res.render('institucional/landing'));
+
 // Rotas do Cliente final (Agendamento)
-app.use('/', clienteRoutes); 
+app.use('/barbearia', clienteRoutes); 
 
 // --- Iniciando o Servidor ---
 app.listen(PORT, () => {
     console.log(`🚀 Servidor rodando na porta ${PORT}`);
-    console.log(`Acesse: http://localhost:${PORT}/auth/login`);
+    console.log(`Acesse: http://localhost:${PORT}/`);
 });
